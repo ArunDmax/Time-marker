@@ -1,0 +1,222 @@
+/*  ===========GOOGLE FONTS=================  */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+/*  =========== VARIABLES IN CSS =================  */
+:root{
+    /*  =========== COLORS =================  */
+    --hue-color:240;
+    
+    --first-color:hsl(var(--hue-color),53%,49%);
+    --title-color: hsl(var(--hue-color),53%,15%);
+    --text-color: hsl(var(--hue-color),12%,35%);
+    --text-color-light: hsl(var(--hue-color),12%,65%);
+    --white-color: #fff;
+    --body-color:hsl(var(--hue-color),24%,94%) ;
+    
+    /*  =========== TYPOGRAPHY =================  */
+    --body-font:'Poppins', sans-serif ;
+    --biggest-font-size:3rem ;
+    --small-font-size: .813rem ;
+    --smaller-font-size: .75rem;
+    --smaller-font-size: .625rem;
+    
+    /*  =========== FONT WEIGHT =================  */
+    --font-medium:500;
+    /*  =========== MARGENES BOTTOM =================  */
+    --mb-0-25:.25rem ;
+    --mb-1: 1rem;
+    --mb-1-5:1.5rem ;
+    --mb-2-5: 2.5rem;
+    
+    /*  =========== z-INDEX =================  */
+    --z-normal: 1;
+    --z-tooltip: 10;
+    
+}
+@media screen and (min-width:968px){
+    :root{
+        --biggest-font-size:3.5rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .813rem;
+        --tinty-font-size: .75rem;
+        margin-left: 20%;
+        
+    }
+    
+}
+/*  =========== BASE =================  */
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body{
+    margin: 0;
+    font-family: var(--body-font);
+    background-color: var(--body-color);
+    color: var(--text-color);
+}
+a{
+    text-decoration: none;
+}
+/*  =========== REUSABLE CSS CLASSES =================  */
+.container{
+    max-width: 968px;
+    margin-left: var(--mb-1);
+    margin-right: var(--mb-1);
+}
+.grid{
+    display: grid;
+}
+/*  =========== CLOCK =================  */
+.clock_container{
+    height: 100vh;
+    grid-template-rows: 1fr max-content;
+}
+.circle{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    box-shadow: -6px -6px 16px var(--white-color),
+                 6px 6px 16px hsla(var(--hue-color),30%,86%,1),
+                 inset 6px 6px 16px hsla(var(--hue-color),30%,86%,1),
+                 inset -6px -6px 16px var(--white-color);
+    border-radius: 50%;
+   align-self: center;
+   justify-self: center;  
+   display: flex;
+   justify-content: center; 
+   align-items: center;          
+}
+.clock_content{
+    align-self: center;
+    row-gap: 3.5rem;
+}
+.clock_twelve,
+.clock_three,
+.clock_six,
+.clock_nine{
+    position: absolute;
+    width: 1rem;
+    height: 1px;
+    background-color:black;
+}
+.clock_six,
+.clock_twelve{
+    transform: translateX(-50%) rotate(90deg);
+}
+
+.clock_twelve{
+    top: 1.25rem;
+    left:50%;
+}
+.clock_six{
+    bottom: 1.25rem;
+    left:50%;
+}
+.clock_three{
+    left: 1.25rem;
+    top:50%;
+}
+.clock_nine{
+    right: 1.25rem;
+    top:50%;
+}
+.rounder{
+    width: .5rem;
+    height: .5rem;
+    background-color:black;
+    border-radius: 50%;
+    border: 2px solid white;
+    z-index:10;
+}
+.hour,
+.minutes,
+.seconds{
+    position:absolute;
+    display: flex;
+    justify-content: center;
+}
+.hour{
+    width: 105px;
+    height: 105px;
+    /* background-color: black; */
+}
+.hour::before{
+    content:'' ;
+    position: absolute;
+    background-color: rgb(252, 7, 7);
+    width: .25rem;
+    height: 3rem;
+    border-radius: .75rem;
+    z-index:2 ;
+}
+.minutes{
+    position: absolute;
+    width: 136px; ;
+    height: 136px;
+    display: flex;
+    justify-content: center;
+    
+}
+.minutes::before{
+    content: '';
+    position: absolute;
+    width: .25rem;
+    height: 4rem;
+    background-color: blue;
+    border-radius: .75rem;
+    z-index: 3;
+}
+.seconds{
+
+    position: absolute;
+    width: 130px; ;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    
+}
+.seconds::before{
+    content: '';
+    position: absolute;
+    width: .2rem;
+    height: 5rem;
+    background-color: red;
+    border-radius: .9rem;
+    z-index: 1;
+}
+.artist{
+    font-size: x-large;
+    display: flex;
+    justify-content: center;
+    color: rgba(15, 7, 7, 0.);
+    opacity: 70%;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 70px;
+}
+.text_clock{
+    position: relative;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+.text_hour,
+.text_minutes{
+    font-size: 50px;
+    margin-left: 10px;
+}
+.text_ampm{
+    margin-left: 10px;
+}
+.text_date{
+    font-size: .85rem;
+    position: relative;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    bottom: 50px;
+}
+.text_month,.text_year{
+    margin-left: 3px;
+}
